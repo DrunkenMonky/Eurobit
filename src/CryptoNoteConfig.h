@@ -131,6 +131,7 @@ struct CheckpointData {
 
 const CheckpointData CHECKPOINTS[] = {
  // {0,  "30a44aef3fff930d9a41fbb8342020937843722e546fe9823ac8ef2d75922d85"},
+ {100,  "ce75a54d6db6bcb05571b1b66f263eaa8184da733ca56ce7304fd114ac0564e7"},
 };
 } // CryptoNote
 
