@@ -1,6 +1,9 @@
 # Eurobit
 The digital counterpart of the Euro.
 
+Please note: The github repo code of the core Eurobit client is not guarenteed to be stable, the most stable option is the releases of
+Eurobit software. 
+
 ## Eurobit compile guide
 
 If your on ubuntu, just download depenencies and compile by doing
