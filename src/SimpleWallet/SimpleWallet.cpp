@@ -16,7 +16,6 @@
 // along with Bytecoin.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "SimpleWallet.h"
-#include "IWallet.h"
 
 
 #include <ctime>
@@ -43,8 +42,6 @@
 #include "NodeRpcProxy/NodeRpcProxy.h"
 #include "Rpc/CoreRpcServerCommandsDefinitions.h"
 #include "Rpc/HttpClient.h"
-#include "crypto/crypto.h"
-#include "Wallet/WalletGreen.h"
 
 
 #include "Wallet/WalletRpcServer.h"
@@ -79,7 +76,7 @@ const command_line::arg_descriptor<std::string> arg_password = { "password", "Wa
 const command_line::arg_descriptor<uint16_t> arg_daemon_port = { "daemon-port", "Use daemon instance at port <arg> instead of 8081", 0 };
 const command_line::arg_descriptor<uint32_t> arg_log_level = { "set_log", "", INFO, true };
 const command_line::arg_descriptor<bool> arg_testnet = { "testnet", "Used to deploy test nets. The daemon must be launched with --testnet flag", false };
-const command_line::arg_descriptor<size_t> arg_dumpspendkey = { "dumpspendkey", "Dumps the wallet private key in plaintext, make sure no one is looking! };
+// const command_line::arg_descriptor<size_t> arg_dumpspendkey = { "dumpspendkey", "Dumps the wallet private key in plaintext, make sure no one is looking! };
 
 
 bool parseUrlAddress(const std::string& url, std::string& address, uint16_t& port) {
@@ -1061,11 +1058,6 @@ bool simple_wallet::print_address(const std::vector<std::string> &args/* = std::
   return true;
 }
 //----------------------------------------------------------------------------------------------------
-bool simple_wallet::dumpspendkey(const std::vector<std::string> &args) {    
-  success_msg_writer() << m_wallet->getAddressSpendKey();     // All this section of code does is show the private key, in a similar fashion to how the simplewallet shows the wallet address
-  return true;
-}
-//----------------------------------------------------------------------------------------------------
 bool simple_wallet::process_command(const std::vector<std::string> &args) {
   return m_consoleHandler.runCommand(args);
 }
@@ -1094,7 +1086,6 @@ int main(int argc, char* argv[]) {
   command_line::add_arg(desc_params, arg_command);
   command_line::add_arg(desc_params, arg_log_level);
   command_line::add_arg(desc_params, arg_testnet);
-  command_line::add_arg(desc_params, arg_dumpspendkey);
   Tools::wallet_rpc_server::init_options(desc_params);
 
   po::positional_options_description positional_options;
