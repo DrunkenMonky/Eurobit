@@ -16,6 +16,8 @@
 // along with Bytecoin.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "SimpleWallet.h"
+#include "IWallet.h"
+
 
 #include <ctime>
 #include <fstream>
@@ -42,7 +44,6 @@
 #include "Rpc/CoreRpcServerCommandsDefinitions.h"
 #include "Rpc/HttpClient.h"
 #include "crypto/crypto.h"
-#include "include/IWallet.h"
 #include "Wallet/WalletGreen.h"
 
 
