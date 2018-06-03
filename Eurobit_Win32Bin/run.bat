@@ -1,0 +1,2 @@
+cpuminer.exe --address eurHfgj57bjDCH4EnGwQh22kHU9SPYKmzXHwPcZWHWFajmgsWDvqs34WWR4q4bDSjtaJny1ZcELBn3bQyKZ3pU91AYwcWLqx9u
+pause
